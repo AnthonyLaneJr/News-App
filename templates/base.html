@@ -20,13 +20,13 @@
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
           <a class="nav-link active" aria-current="page" href="{% url 'article_total_list' %}">News Feed</a>
-          {% for section in section%}
+          {% for Section in sections%}
           <a class="nav-link" href="{% url 'article_list' section.id 2 %}">{{ section.name }}</a>
           {% endfor %}
-          {% if user.roler.id > 1%}
+          {% if user.roler.id > 1 %}
            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-target="dropdown" aria-expanded="false">Dropdown</a>
             <ul class="dropdown-menu">
-              {% for status in statuss %}
+              {% for Status in statuss %}
               <li>
                 <a class="dropdown-item" href="{% url 'article_list' status.id %}">{{ status.name }}</a>
               </li>

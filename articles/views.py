@@ -59,7 +59,7 @@ class ArticleTotalListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["article_list"] = Post.objects.filter(
+        context["article_list"] = Articles.objects.filter(
             active=True
         ).order_by("created_on").reverse()
         context["current_datetime"] = datetime.now().strftime("%F %H:%M:%S")
