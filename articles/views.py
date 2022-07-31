@@ -58,6 +58,13 @@ class ArticleDetailView(DetailView):
     model = Article
     template_name = "articles/detail.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if context["article"].active == True:
+            return context
+        else:
+            self.template_name = "errors/404.html"
+            return context
 
 class ArticleCreateView(CreateView):
     model = Article
@@ -76,7 +83,7 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
 
 
-class ArticleUpdateView(UpdateView):
+class ArticleUpdateView(LoginRequiredMixin, UpdateView):
     model = Article
     template_name = "articles/edit.html"
     fields = [
