@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Forbidden{% endblock title %}
+
+{% block content %}
+<br>
+<h1 class="home">You are not authorized to view this page.</h1>
+
+<p class="white-text home"></p><a href="{% url 'home' %}" class="white-text home">Click here</a> to go to the Home page.
+{% endblock content %}

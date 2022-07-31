@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Delete Article{% endblock title %}
+
+{% block content %}
+<h1 class="delete">Delete Article</h1>
+<p class="delete">Are you sure you wish to delete this artilce "{{ article.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Confirm">
+</form>
+{% endblock content %}

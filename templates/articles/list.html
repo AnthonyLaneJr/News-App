@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}News Feed{% endblock title %}
+
+{% block content %}
+<h1 class="lists">News Feed</h1>
+<!-- <h3 class="lists">Current Date Time {{ current_datetime }}</h3> to add datetime of search execution -->
+<ul>
+    <div class="row">
+        {% for article in article_list %}
+        <br>
+        <div class="col">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ article.author }}</h6>
+                <p class="card-text">{{ article.body|truncatechars:30 }}</p>
+            </div>
+        </div>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</ul>
+{% endblock content %}

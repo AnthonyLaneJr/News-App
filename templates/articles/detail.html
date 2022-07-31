@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock title %}
+
+{% block content %}
+<h1 class="detail">{{ article.title }}</h1>
+<br>
+<h3 class="detail">Topic: {{ article.subtitle }}</h3>
+<br>
+<p class="detail">{{ article.body }}</p>
+<small class="detail">Created on: {{ article.created_on }} | By: {{ article.author }}</small>
+{% if user.is_authenticated %}
+<p class="detail">
+    <a class="detail" href="{% url 'article_edit' article.id %}">Edit Post</a>  |  
+    <a class="detail" href="{% url 'article_delete' article.id %}">Delete Post</a>
+</p>
+{% endif %}
+{% endblock content %}
