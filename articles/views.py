@@ -53,6 +53,17 @@ class ArticleListView(LoginRequiredMixin, ListView):
             return self.get_article_list_context(context, section, status)
         raise PermissionDenied("You are not authorized to view this page")
 
+class ArticleTotalListView(ListView):
+    template_name = "articles/list.html"
+    model = Article
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["article_list"] = Post.objects.filter(
+            active=True
+        ).order_by("created_on").reverse()
+        context["current_datetime"] = datetime.now().strftime("%F %H:%M:%S")
+        return context
 
 class ArticleDetailView(DetailView):
     model = Article

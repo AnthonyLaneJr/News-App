@@ -16,6 +16,7 @@
                 <h5 class="card-title">{{ article.title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ article.author }}</h6>
                 <p class="card-text">{{ article.body|truncatechars:30 }}</p>
+                <a href="{% url 'post_detail' post.id %}" class="card-link">Read More</a>
             </div>
         </div>
         </div>

@@ -25,9 +25,9 @@
           {% if user.roler.id > 1%}
            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-target="dropdown" aria-expanded="false">Dropdown</a>
             <ul class="dropdown-menu">
-              {% for status in statuses %}
+              {% for status in statuss %}
               <li>
-                <a class="dropdown-item" href="{% url 'article_list' 1 status.id %}">{{ status.name }}</a>
+                <a class="dropdown-item" href="{% url 'article_list' status.id %}">{{ status.name }}</a>
               </li>
               <li><hr class="dropdown-divider"></li>
               {% endfor %}
