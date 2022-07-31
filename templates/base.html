@@ -19,7 +19,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="{% url 'about' %}">About</a>
-          {% for section in sections%}
+          <a class="nav-link active" aria-current="page" href="{% url 'article_total_list' %}">News Feed</a>
+          {% for section in section%}
           <a class="nav-link" href="{% url 'article_list' section.id 2 %}">{{ section.name }}</a>
           {% endfor %}
           {% if user.roler.id > 1%}
